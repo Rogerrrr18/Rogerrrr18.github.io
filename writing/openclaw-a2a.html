@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OpenClaw, A2A, and Agent-Native Products — Roger Yang</title>
+    <meta name="description" content="When software becomes a callable capability, interfaces, transactions, and product economics change." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css?v=writing-en" />
+    <link rel="stylesheet" href="../writing.css?v=writing-en" />
+  </head>
+  <body>
+    <div class="cursor-glow" aria-hidden="true"></div>
+
+    <header class="article-site-header">
+      <a href="../index.html" class="article-back-home">Roger Yang</a>
+      <nav class="article-header-nav">
+        <a href="../index.html#blog">Writing</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main class="article-main">
+      <article>
+        <div class="article-meta-top">
+          <span class="article-tag-badge">Agent Economy</span>
+          <span class="article-reading-time">3 min read</span>
+        </div>
+        <h1 class="article-title">OpenClaw, A2A, and Agent-Native Products</h1>
+        <div class="article-body">
+<p>I am reluctant to call OpenClaw a revolution. I tried it because the excitement around it was difficult to ignore, and the experience did change how I think about software. A task that once needed several screens, buttons, and instructions can sometimes be packaged as a callable skill. That is a change in product shape, not just in model quality.</p>
+<p>Claude Code still feels like a powerful tool operated within a human-led workflow. Manus emphasizes completing a delegated task as a product experience. OpenClaw made me notice how thin the interface can become when a capability is packaged for an agent to invoke. The timing matters: models, tool protocols, and user expectations have improved together.</p>
+<h2 class="article-h2">When the user is another agent</h2>
+<p>Human-facing products need clarity, taste, and room for exploration. We sometimes browse without a precise goal. An agent-facing product is judged more directly on structured information, stable interfaces, predictable execution, and cost. A beautiful page will not compensate for an API that another system cannot use reliably.</p>
+<p>I expect two kinds of products to become more distinct. One offers machine-readable capabilities that agents can call. The other offers experiences people still want to see and feel. Products that rely mainly on wrapping an ordinary function in a middling interface may face pressure as agents handle comparison, selection, and navigation in the background.</p>
+<p>There is a trade-off. A shorter path to an outcome can save time, but it can also remove the incidental discovery that comes from browsing. Designers should decide where human attention is valuable instead of assuming that every step should disappear.</p>
+<h2 class="article-h2">A2A changes the transaction path</h2>
+<p>In a familiar online purchase, a person searches, compares, asks questions, pays, and follows delivery across several services. An agent could perform much of that coordination while the person authorizes consequential steps. Search, recommendation, payment, customer service, and inventory systems then need ways to exchange information and maintain responsibility for their part of the task.</p>
+<p>The <a href="https://a2aproject.github.io/A2A/latest/specification/" target="_blank" rel="noopener noreferrer">Agent2Agent protocol</a> addresses collaboration between independent agents: capability discovery, shared tasks, and exchange of results. <a href="https://a2aproject.github.io/A2A/latest/topics/a2a-and-mcp/" target="_blank" rel="noopener noreferrer">MCP and A2A</a> solve related but different connection problems: MCP links agents to tools and resources, while A2A links agents to other agents. The Linux Foundation's stewardship of A2A is a sign that interoperability is becoming an industry concern rather than a feature inside one product.</p>
+<p>Protocols do not complete a purchase by themselves. Identity, authorization, payment limits, fraud controls, and liability have to work too. This is why platforms, SaaS vendors, and payment networks have reason to care about the same emerging transaction stack.</p>
+<h2 class="article-h2">Where value may move</h2>
+<p>Traffic platforms historically competed to keep people on their own pages. If an agent compares options for the user, suppliers may compete to be accurately represented in that agent's choice set. Structured catalog data, availability, credible terms, and low-friction fulfillment become part of distribution. A brand still matters to people, but an agent also needs claims it can verify and act on.</p>
+<p>Pricing may move closer to outcomes in some workflows: a completed order, a resolved support case, or reduced fraud. Existing seat and API fees will remain useful, but agents make it easier to measure the chain of work that produced a result. The platforms with supply, payments, and trust may keep strong positions even as their front ends become thinner.</p>
+<h2 class="article-h2">The next useful agent will be judged by its ordinary days</h2>
+<p>I would look first at valuable, fragmented workflows: travel, business purchasing, customer service, software delivery, and cross-border commerce. These tasks contain enough repeated work for agents to help, but they still need human approval at important points. The practical pattern is agent-to-agent execution with human authorization where responsibility matters.</p>
+<p>Many impressive demos disappear because they do not fit an existing workflow, need hidden human support, cost too much, or fail on the second attempt. A durable agent has to connect to real systems, recover from errors, and make its cost and responsibility clear. OpenClaw's lasting lesson for me is the possibility of software delivered as a small, reusable capability. The hard work is making that capability dependable when other agents begin to use it.</p>
+        </div>
+      </article>
+
+      <div class="article-back-section">
+        <a href="../index.html#blog" class="article-back-link">← Back to Writing</a>
+      </div>
+    </main>
+
+    <footer class="site-footer" style="max-width: 760px; margin: 0 auto;">
+      <div class="footer-left">
+        <span>© 2026 Roger Yang</span>
+      </div>
+      <div class="footer-right">
+        <span>Designed &amp; built with focus, speed, and taste.</span>
+      </div>
+    </footer>
+
+    <script>
+      const glow = document.querySelector('.cursor-glow');
+      if (glow && window.matchMedia('(hover: hover)').matches) {
+        document.addEventListener('mousemove', e => {
+          glow.style.left = e.clientX + 'px';
+          glow.style.top = e.clientY + 'px';
+        });
+      }
+    </script>
+  </body>
+</html>

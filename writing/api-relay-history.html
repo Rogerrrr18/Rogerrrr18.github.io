@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>From API Relays to AI Gateways — Roger Yang</title>
+    <meta name="description" content="The model gateway is becoming a control layer for routing, cost, data, and payments." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css?v=writing-en" />
+    <link rel="stylesheet" href="../writing.css?v=writing-en" />
+  </head>
+  <body>
+    <div class="cursor-glow" aria-hidden="true"></div>
+
+    <header class="article-site-header">
+      <a href="../index.html" class="article-back-home">Roger Yang</a>
+      <nav class="article-header-nav">
+        <a href="../index.html#blog">Writing</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main class="article-main">
+      <article>
+        <div class="article-meta-top">
+          <span class="article-tag-badge">AI Infrastructure</span>
+          <span class="article-reading-time">3 min read</span>
+        </div>
+        <h1 class="article-title">From API Relays to AI Gateways</h1>
+        <div class="article-body">
+<p>An AI API relay once looked like a small convenience business: one endpoint and one bill for developers who wanted to try several models. That description now misses the interesting part. A gateway sits between applications and model providers, where routing, cost controls, logs, and sometimes payment decisions happen.</p>
+<h2 class="article-h2">Why relays appeared</h2>
+<p>Early model access was fragmented. Developers faced different SDKs, account rules, regions, currencies, and billing systems for GPT, Claude, Gemini, and other models. Projects such as One API and LiteLLM showed how a common interface could reduce integration work. Some operators also resold access through personal subscriptions or account pools. That gray-market model lowered the apparent price, but it depended on arrangements that providers could restrict at any time.</p>
+<p>Provider controls and local regulation have made that subscription-arbitrage model harder to sustain. The more durable value is legitimate multi-model access: a stable endpoint, explicit billing, and governance that a team can audit.</p>
+<h2 class="article-h2">The gateway becomes a control layer</h2>
+<p>A modern AI gateway does more than forward a request. It can route among models and providers, apply budgets and rate limits, record usage, cache repeated prompts, retry failures, and manage fallbacks. <a href="https://developers.cloudflare.com/ai-gateway/features/rate-limiting/" target="_blank" rel="noopener noreferrer">Cloudflare's documentation</a> shows rate limiting and <a href="https://developers.cloudflare.com/ai-gateway/configuration/fallbacks/" target="_blank" rel="noopener noreferrer">fallbacks</a>; <a href="https://openrouter.ai/docs/guides/best-practices/prompt-caching" target="_blank" rel="noopener noreferrer">OpenRouter's documentation</a> explains routing choices that preserve prompt-cache benefits.</p>
+<p>This layer becomes more valuable as requests become longer and agent workflows call tools over several steps. A team needs to know which model handled each step, how much the task cost, and whether a fallback changed the result. A common API is useful; an accountable execution record is more valuable.</p>
+<h2 class="article-h2">Different businesses want the same position</h2>
+<p><a href="https://docs.easyrouter.io/en" target="_blank" rel="noopener noreferrer">EasyRouter</a> presents the gateway as a developer integration and management service. <a href="https://b.ai/" target="_blank" rel="noopener noreferrer">B.AI</a> connects multi-model access to crypto-native payment and agent identity. <a href="https://www.worldrouter.ai/faq" target="_blank" rel="noopener noreferrer">WorldRouter</a> describes a model endpoint funded with USD1 stablecoin credits. These are different entry points into the same strategic layer: the place where model calls are authorized, routed, priced, and observed.</p>
+<p>My original Chinese essay discussed reports linking WorldRouter to the WLFI ecosystem. For clarity, <a href="https://www.worldrouter.ai/terms" target="_blank" rel="noopener noreferrer">WorldRouter's own terms</a> say its services are not offered, managed, or controlled by WLFI. Product claims and corporate relationships should be checked separately.</p>
+<h2 class="article-h2">The economic and data trade-off</h2>
+<p>Prepaid credits can make a gateway's cash flow attractive. More important over time is its view of demand: model choices, task types, latency, spending patterns, and failure rates. That information can help users choose a cheaper or more reliable route and can help providers understand where their models perform well.</p>
+<p>The same position creates a privacy risk. Prompts, code, and business context may pass through the gateway. An enterprise buyer should examine data retention, logging controls, deployment options, access permissions, and the terms governing every downstream provider. A lower token price is not enough if the route is opaque.</p>
+<p>I see four broad models: fragile account-pool resellers; open-source gateways run by the customer; commercial aggregators offering a unified bill; and enterprise gateways integrated with existing security and operations tools. Agent payments may add a fifth dimension, but the core test is simpler. Can the gateway make model use cheaper and more dependable while leaving the user in control of the data and the decision path?</p>
+        </div>
+      </article>
+
+      <div class="article-back-section">
+        <a href="../index.html#blog" class="article-back-link">← Back to Writing</a>
+      </div>
+    </main>
+
+    <footer class="site-footer" style="max-width: 760px; margin: 0 auto;">
+      <div class="footer-left">
+        <span>© 2026 Roger Yang</span>
+      </div>
+      <div class="footer-right">
+        <span>Designed &amp; built with focus, speed, and taste.</span>
+      </div>
+    </footer>
+
+    <script>
+      const glow = document.querySelector('.cursor-glow');
+      if (glow && window.matchMedia('(hover: hover)').matches) {
+        document.addEventListener('mousemove', e => {
+          glow.style.left = e.clientX + 'px';
+          glow.style.top = e.clientY + 'px';
+        });
+      }
+    </script>
+  </body>
+</html>

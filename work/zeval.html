@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zeval — Roger Yang</title>
+    <meta name="description" content="Zeval explores evaluation of AI agents using interaction logs, reviewable failure cases and regression checks." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../writing.css" />
+    <style>
+      .work-meta-row {
+        display: flex; gap: 2.5rem; margin-top: 1.5rem;
+        padding-top: 1.5rem; border-top: 1px solid var(--gray-200); flex-wrap: wrap;
+      }
+      .work-meta-item { display: flex; flex-direction: column; gap: 0.25rem; }
+      .work-meta-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gray-400); }
+      .work-meta-value { font-size: 0.9rem; font-weight: 500; color: var(--gray-700); }
+      .work-meta-value a { color: var(--gray-700); text-decoration: none; border-bottom: 1px solid var(--gray-300); }
+      .work-meta-value a:hover { border-bottom-color: var(--gray-600); }
+      .work-section { margin-bottom: 2.5rem; }
+      .work-section h2 {
+        font-family: var(--font-display); font-size: 0.78rem; font-weight: 600;
+        letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1rem;
+        color: var(--gray-400);
+      }
+      .work-section p { font-size: 0.92rem; line-height: 1.8; color: var(--gray-600); margin-bottom: 0.75rem; }
+      .work-section p:last-child { margin-bottom: 0; }
+      .work-section ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+      .work-section ul li { font-size: 0.92rem; line-height: 1.7; color: var(--gray-600); padding-left: 1.2em; position: relative; }
+      .work-section ul li::before { content: '—'; position: absolute; left: 0; color: var(--gray-300); }
+      .work-divider { border: none; border-top: 1px solid var(--gray-200); margin: 2rem 0; }
+      .flywheel-row {
+        display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap;
+        margin-top: 0.75rem; font-size: 0.84rem; color: var(--gray-500);
+      }
+      .flywheel-row span { color: var(--gray-700); font-weight: 500; }
+      .flywheel-row .sep { color: var(--gray-300); }
+      @media (max-width: 640px) {
+        .work-meta-row { gap: 1.5rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cursor-glow" aria-hidden="true"></div>
+
+    <header class="article-site-header">
+      <a href="../index.html" class="article-back-home">Roger Yang</a>
+      <nav class="article-header-nav">
+        <a href="../index.html#work">Work</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main class="article-main"><article><div class="article-meta-top"><span class="article-tag-badge">AI Evaluation</span></div><h1 class="article-title">Zeval</h1><div class="work-section"><p>Zeval explores how teams can evaluate AI agents using real interaction logs. It turns repeated user corrections, unfinished tasks and recovery attempts into reviewable cases, then uses those cases for regression checks before the next release.</p></div>
+<div class="work-meta-row"><div class="work-meta-item"><span class="work-meta-label">Role</span><span class="work-meta-value">Co-founder · Product lead</span></div><div class="work-meta-item"><span class="work-meta-label">Team</span><span class="work-meta-value">ZERORE · 5 people</span></div><div class="work-meta-item"><span class="work-meta-label">Stage</span><span class="work-meta-value">MVP validation</span></div><div class="work-meta-item"><span class="work-meta-label">Focus</span><span class="work-meta-value">Agent evaluation</span></div><div class="work-meta-item"><span class="work-meta-label">GitHub</span><span class="work-meta-value"><a href="https://github.com/Designer-Awei/zerore-eval-system" target="_blank" rel="noopener noreferrer">zerore-eval-system ↗</a></span></div></div>
+<hr class="work-divider" />
+<div class="work-section"><h2>The question</h2><p>Aggregate scores can conceal the failures that matter most to users. How can an agent team find those failures systematically and tell whether a new version fixes them?</p></div>
+<hr class="work-divider" />
+<div class="work-section"><h2>Evaluation loop</h2><ul><li><strong>Find friction:</strong> identify repeated requests, corrections and abandoned interactions in conversation traces.</li><li><strong>Inspect recovery:</strong> separate outright failures from cases in which the agent corrected itself.</li><li><strong>Create cases:</strong> turn recurring patterns into concrete regression examples that reviewers can inspect.</li><li><strong>Check releases:</strong> run those examples again as the agent changes.</li></ul><div class="flywheel-row"><span>Logs</span><span class="sep">→</span><span>Failure patterns</span><span class="sep">→</span><span>Reviewable cases</span><span class="sep">→</span><span>Regression checks</span></div></div>
+<hr class="work-divider" />
+<div class="work-section"><h2>What I take into research</h2><p>Reliable evaluation needs traceable evidence, clear failure categories and cases that remain useful after a model or prompt changes. Those ideas also shape how I think about scientific agents.</p></div>
+<div class="article-back-section"><a href="../index.html#work" class="article-back-link">← Back to Work</a></div></article></main>
+
+    <script src="../script.js"></script>
+  </body>
+</html>

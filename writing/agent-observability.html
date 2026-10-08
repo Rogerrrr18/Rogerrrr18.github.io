@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Why Agent Observability Still Matters — Roger Yang</title>
+    <meta name="description" content="Tracing an agent means seeing its decisions, failures, and the evidence behind its final answer." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css?v=writing-en" />
+    <link rel="stylesheet" href="../writing.css?v=writing-en" />
+  </head>
+  <body>
+    <div class="cursor-glow" aria-hidden="true"></div>
+
+    <header class="article-site-header">
+      <a href="../index.html" class="article-back-home">Roger Yang</a>
+      <nav class="article-header-nav">
+        <a href="../index.html#blog">Writing</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main class="article-main">
+      <article>
+        <div class="article-meta-top">
+          <span class="article-tag-badge">Agent Systems</span>
+          <span class="article-reading-time">3 min read</span>
+        </div>
+        <h1 class="article-title">Why Agent Observability Still Matters</h1>
+        <div class="article-body">
+<p>Agent teams often discover a failure only after a user complains. The final answer may look fluent, every API may return 200, and the task may still go wrong because the agent retrieved the wrong document, called a tool at the wrong time, or lost an earlier constraint. Those failures are why I keep returning to observability.</p>
+<p>For an agent, observability means being able to reconstruct what it did, what information it used, and where a decision changed course. OpenTelemetry's work on GenAI semantic conventions points toward a shared description of model calls, agent and framework spans, inputs, outputs, token use, events, and errors. That matters because a trace should be useful across tools rather than trapped inside one vendor's dashboard.</p>
+<h2 class="article-h2">The step is the unit of failure</h2>
+<p>Traditional monitoring asks whether a service is available, slow, or expensive. Agent tracing also needs the retrieved documents, prompt templates, tool descriptions, function calls, intermediate state, and final response. Arize makes this distinction in its tracing guidance. Without those steps, a team can see that a response was bad but cannot explain why.</p>
+<p>I expect observability to become a standard layer for agents used in production. It will be broader than a “Datadog for agents,” though. Datadog's agent monitoring covers errors, latency, cost, decisions, and end-to-end traces across popular frameworks. Those signals reveal operational health. They do not, by themselves, say whether a tool choice was sensible or whether a result met the user's actual goal.</p>
+<p>That is why LangSmith, Langfuse, and Braintrust connect tracing with evaluation. A production trace can become a regression case. A reviewer can score a trajectory, identify a repeated failure, and test whether the next version fixes it. Observability supplies the record; evaluation supplies a judgment about that record.</p>
+<h2 class="article-h2">Will tracing and evaluation converge?</h2>
+<p>They are already converging in workflow. LangSmith places observability, evaluation, and deployment together. Langfuse connects traces to evaluators. Braintrust moves production logs into datasets, offline tests, and online scoring. An agent team needs that loop more than it needs another collection of screenshots from a debugging session.</p>
+<p>I am less convinced that one vendor will own the whole stack. OpenTelemetry and OpenInference create a more portable data layer. Teams may still choose different products for review queues, dataset management, release gates, and production scoring. The trace format can converge while the quality workflow remains competitive.</p>
+<p>Tracing and evaluation also answer different questions. A trace tells us what happened. An evaluation tells us whether it was acceptable under a defined standard. If a team has only traces, it has a detailed history without a decision rule. If it has only scores, it has judgments with little evidence for repair.</p>
+<h2 class="article-h2">The product entry point is debugging; the durable value is quality control</h2>
+<p>Debugging is the immediate reason to buy a tracing tool. Engineers need to see the full sequence of retrieval, tool calls, timing, costs, and errors. That problem is concrete, especially before an agent has much traffic.</p>
+<p>At scale, the harder question is whether quality is drifting. Can the team find failures in live conversations, turn them into test cases, and decide whether a new version should ship? Datadog has moved toward anomaly detection and built-in evaluations; Braintrust and LangSmith support production scoring and online evaluation. These features make observability part of ongoing quality governance.</p>
+<p>My conclusion is straightforward: a production agent needs a record of its decisions and a way to judge them. As agents use more tools and longer workflows, a final success rate alone will hide too much. The team that can trace a failure, explain it, and add it to the next regression run will improve faster.</p>
+        </div>
+      </article>
+
+      <div class="article-back-section">
+        <a href="../index.html#blog" class="article-back-link">← Back to Writing</a>
+      </div>
+    </main>
+
+    <footer class="site-footer" style="max-width: 760px; margin: 0 auto;">
+      <div class="footer-left">
+        <span>© 2026 Roger Yang</span>
+      </div>
+      <div class="footer-right">
+        <span>Designed &amp; built with focus, speed, and taste.</span>
+      </div>
+    </footer>
+
+    <script>
+      const glow = document.querySelector('.cursor-glow');
+      if (glow && window.matchMedia('(hover: hover)').matches) {
+        document.addEventListener('mousemove', e => {
+          glow.style.left = e.clientX + 'px';
+          glow.style.top = e.clientY + 'px';
+        });
+      }
+    </script>
+  </body>
+</html>

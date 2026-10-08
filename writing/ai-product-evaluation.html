@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Why AI Product Teams Get Evaluation Wrong — Roger Yang</title>
+    <meta name="description" content="A scorecard helps only when it can change the next product decision." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css?v=writing-en" />
+    <link rel="stylesheet" href="../writing.css?v=writing-en" />
+  </head>
+  <body>
+    <div class="cursor-glow" aria-hidden="true"></div>
+
+    <header class="article-site-header">
+      <a href="../index.html" class="article-back-home">Roger Yang</a>
+      <nav class="article-header-nav">
+        <a href="../index.html#blog">Writing</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main class="article-main">
+      <article>
+        <div class="article-meta-top">
+          <span class="article-tag-badge">AI Product</span>
+          <span class="article-reading-time">3 min read</span>
+        </div>
+        <h1 class="article-title">Why AI Product Teams Get Evaluation Wrong</h1>
+        <div class="article-body">
+<p>A friend working on an AI product told me his team had become exhausted by evaluation. They ran cases every day, compared model versions, expanded rubrics, and reviewed more human labels. Yet users were still complaining, and the team could not agree on what to fix next. The spreadsheet was growing faster than the product was improving.</p>
+<p>I recognize the pattern. A team can work hard at evaluation and still produce a more elaborate form of confusion. The activity looks rigorous, but it has little authority over product decisions.</p>
+<h2 class="article-h2">The mistake starts with timing</h2>
+<p>Many teams add evaluation after the feature, workflow, and demo are already built. At that point it becomes a final inspection. It can report that something is weak, but it had no role in defining what the product was supposed to do. That makes evaluation feel like tedious checking rather than a source of direction.</p>
+<p>There is a second mistake: teams say they are evaluating a product when they are evaluating only the model's final answer. Users experience the whole task. A good-looking answer may rest on a bad retrieval result or a failed tool call. The first turn may be impressive while the second forgets the user's constraints. An agent can sound confident exactly when it should ask for help.</p>
+<p>Looking only at the output misses those failures. It also misses what different users actually value. One person can tolerate a slower answer but not an invented fact. Another cares less about elegant prose than about saving twenty minutes of work. Evaluation has to represent those differences.</p>
+<h2 class="article-h2">Define the promise before building the scorecard</h2>
+<p>Useful evaluation starts when a team decides what the product promises. What task is the user trying to finish? Which errors destroy trust? Which flaws are annoying but tolerable? Which scenarios are central, and which are edge cases? A team should answer those questions before it writes cases or picks a judge model.</p>
+<p>Then the rubric can become a shared language. Engineering, product, and operations can argue over a specific failure instead of over different meanings of “good.” After a release, the team can ask whether the main user journey improved, rather than whether an aggregate score rose.</p>
+<p>Vague goals such as “more natural” or “more stable” give everyone room to interpret the result differently. A useful standard names the task, the critical step, and the unacceptable failure. It also distinguishes a repeated failure on a common path from an ugly but rare case.</p>
+<h2 class="article-h2">Make the evaluation change a decision</h2>
+<p>Every evaluation round should serve a decision: ship or hold, prioritize one user journey over another, or determine whether the problem comes from the model, tool execution, context design, or the task definition itself. Without that question, the output is a list of observations with no owner.</p>
+<ol class="article-list"><li>Set the task boundary and the standard of success before development. Turn user needs into observable criteria.</li><li>Test the whole task path, including intent understanding, state, retrieval, tool calls, failure handling, and the final result.</li><li>Attribute failures. A low pass rate is a symptom; the team needs to know which part of the system caused it.</li><li>Let the findings change priorities, ownership, and the roadmap. A scorecard that cannot move a decision is background material.</li></ol>
+<p>Evaluation becomes valuable when it reduces uncertainty about the next change. If the team still plans to ship the same features in the same order after learning where users fail, it has measured the product without steering it.</p>
+        </div>
+      </article>
+
+      <div class="article-back-section">
+        <a href="../index.html#blog" class="article-back-link">← Back to Writing</a>
+      </div>
+    </main>
+
+    <footer class="site-footer" style="max-width: 760px; margin: 0 auto;">
+      <div class="footer-left">
+        <span>© 2026 Roger Yang</span>
+      </div>
+      <div class="footer-right">
+        <span>Designed &amp; built with focus, speed, and taste.</span>
+      </div>
+    </footer>
+
+    <script>
+      const glow = document.querySelector('.cursor-glow');
+      if (glow && window.matchMedia('(hover: hover)').matches) {
+        document.addEventListener('mousemove', e => {
+          glow.style.left = e.clientX + 'px';
+          glow.style.top = e.clientY + 'px';
+        });
+      }
+    </script>
+  </body>
+</html>

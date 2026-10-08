@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How to Read AI Model Leaderboards — Roger Yang</title>
+    <meta name="description" content="Choose benchmark measures that match your task, then compare speed, price, and reliability." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css?v=writing-en" />
+    <link rel="stylesheet" href="../writing.css?v=writing-en" />
+  </head>
+  <body>
+    <div class="cursor-glow" aria-hidden="true"></div>
+
+    <header class="article-site-header">
+      <a href="../index.html" class="article-back-home">Roger Yang</a>
+      <nav class="article-header-nav">
+        <a href="../index.html#blog">Writing</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main class="article-main">
+      <article>
+        <div class="article-meta-top">
+          <span class="article-tag-badge">Model Evaluation</span>
+          <span class="article-reading-time">4 min read</span>
+        </div>
+        <h1 class="article-title">How to Read AI Model Leaderboards</h1>
+        <div class="article-body">
+<p>A release announcement can put ten benchmark scores in one chart and still leave a reader with the wrong question: “Which model is best?” The useful question is which model fits the task, the latency you can tolerate, and the budget you have.</p>
+<p>This guide uses <a href="https://artificialanalysis.ai/models/" target="_blank" rel="noopener noreferrer">Artificial Analysis</a> as a map because it measures model quality alongside speed and price. Benchmark versions and leaderboard positions change, so I would read its <a href="https://artificialanalysis.ai/methodology/intelligence-benchmarking" target="_blank" rel="noopener noreferrer">current methodology</a> before making a purchasing decision. The descriptions below explain what to look for rather than recommending a model that may be overtaken next month.</p>
+<h2 class="article-h2">What does an intelligence score contain?</h2>
+<p>A composite index combines different tests. Its single number is convenient, but it hides which abilities produced the score. Scientific reasoning, professional work, coding, tool use, instruction following, and long-context reliability are different capabilities.</p>
+<ul class="article-list"><li><strong>GPQA Diamond and Humanity's Last Exam</strong> probe difficult expert-level knowledge and reasoning. They are more relevant to research questions than to routine drafting.</li><li><strong>SciCode</strong> tests scientific programming. A researcher asking an assistant to write simulation or analysis code should inspect it alongside general coding tests.</li><li><strong>GDPval-AA</strong> measures performance on realistic professional deliverables across occupations. It is an agentic work benchmark, not a coding-only test.</li><li><strong>AA-Omniscience</strong> tests factual reliability and whether a model handles uncertainty rather than inventing an answer.</li><li><strong>AA-LCR</strong> probes reasoning over long inputs. A large advertised context window does not guarantee accurate use of information in the middle of a document.</li><li><strong>Terminal-Bench</strong> examines multi-step work in a command-line environment, including tool use and recovery from errors.</li><li><strong>Instruction-following and critical-thinking tests</strong> ask whether a model respects constraints and challenges weak reasoning. Check the current index version: individual tests can move in or out of the composite.</li></ul>
+<p>The index is a starting point. If your application fails when a model invents a citation, the factual-reliability measure deserves more weight than a small lead in the aggregate score. If it must complete a workflow, inspect a tool-use benchmark rather than a multiple-choice science test.</p>
+<h2 class="article-h2">Quality is only one side of the choice</h2>
+<p>For an API product I also compare three operational measures. <strong>Output speed</strong> is how quickly tokens appear once generation starts. <strong>First-token latency</strong> is the wait before anything appears. They affect the user differently: a voice assistant needs a quick first response, while a long report benefits from sustained throughput.</p>
+<p><strong>Price</strong> matters at the scale of the actual workload. A model that costs more per token may still be cheaper per completed task if it needs fewer retries or tool calls. Compare input and output pricing, caching, and the token mix your application uses. The advertised context window is another constraint, but it should be read with long-context evaluation results rather than in isolation.</p>
+<p>Openness matters when the model must run in a private environment or be fine-tuned. Ask whether weights are available, what deployment rights the license grants, and whether the model can meet your data-handling requirements. A closed API can be excellent on an index and still be unsuitable for a private deployment.</p>
+<h2 class="article-h2">Image and video models need a different scorecard</h2>
+<p>Parameter count and output resolution say little about whether a generated image serves a brief. Artificial Analysis' <a href="https://artificialanalysis.ai/methodology/image" target="_blank" rel="noopener noreferrer">image methodology</a> uses blind pairwise human preferences and Elo ratings to compare perceived quality. That is more useful than a single automatic similarity score, though an average preference may differ from your own visual style.</p>
+<p>For image production, I would compare quality, generation time, and cost per batch, then test the short list with my own prompts. Video adds motion consistency, temporal coherence, duration, and sometimes audio. Providers bill video differently, so normalize the cost to a comparable output before declaring one cheaper.</p>
+<h2 class="article-h2">Start with the job, then choose the metric</h2>
+<ul class="article-list"><li><strong>Software engineering:</strong> code and terminal-task results, instruction following, output speed, and the cost of a successful change.</li><li><strong>Research:</strong> scientific reasoning, SciCode, long-context performance, and resistance to fabricated facts or references.</li><li><strong>Finance, legal, and compliance work:</strong> factual reliability and careful handling of long documents. Verify important outputs independently.</li><li><strong>Design:</strong> image preference results plus your own style tests, speed, and price.</li><li><strong>Content operations:</strong> adequate quality at a sustainable cost across repeated tasks.</li><li><strong>Agent workflows:</strong> tool-use and multi-step benchmarks, instruction following, latency, and failure recovery.</li></ul>
+<p>A model can lead one leaderboard and be the wrong choice for a particular workflow. I keep a small evaluation set made from the work I actually need done, compare the short list against it, and revisit the choice when either the models or the workload changes.</p>
+        </div>
+      </article>
+
+      <div class="article-back-section">
+        <a href="../index.html#blog" class="article-back-link">← Back to Writing</a>
+      </div>
+    </main>
+
+    <footer class="site-footer" style="max-width: 760px; margin: 0 auto;">
+      <div class="footer-left">
+        <span>© 2026 Roger Yang</span>
+      </div>
+      <div class="footer-right">
+        <span>Designed &amp; built with focus, speed, and taste.</span>
+      </div>
+    </footer>
+
+    <script>
+      const glow = document.querySelector('.cursor-glow');
+      if (glow && window.matchMedia('(hover: hover)').matches) {
+        document.addEventListener('mousemove', e => {
+          glow.style.left = e.clientX + 'px';
+          glow.style.top = e.clientY + 'px';
+        });
+      }
+    </script>
+  </body>
+</html>

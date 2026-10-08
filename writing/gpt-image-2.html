@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GPT Image 2 and the Fragility of Visual Evidence — Roger Yang</title>
+    <meta name="description" content="Convincing synthetic images make provenance and context essential to visual trust." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css?v=writing-en" />
+    <link rel="stylesheet" href="../writing.css?v=writing-en" />
+  </head>
+  <body>
+    <div class="cursor-glow" aria-hidden="true"></div>
+
+    <header class="article-site-header">
+      <a href="../index.html" class="article-back-home">Roger Yang</a>
+      <nav class="article-header-nav">
+        <a href="../index.html#blog">Writing</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main class="article-main">
+      <article>
+        <div class="article-meta-top">
+          <span class="article-tag-badge">Generative Media</span>
+          <span class="article-reading-time">3 min read</span>
+        </div>
+        <h1 class="article-title">GPT Image 2 and the Fragility of Visual Evidence</h1>
+        <div class="article-body">
+<p>I expected to write a practical guide to GPT Image 2. I tested posters, cover designs, text rendering, visual consistency, and realism. The results made that guide easy to imagine. Then I tried a different kind of prompt, and the question changed.</p>
+<p>I generated a hospital-room scene with a processed subject, then a screenshot of an article that had never been published, a handwritten assignment, and a social post dated in the future. The details looked plausible: lighting, layout, typography, and the small imperfections that usually make a picture feel ordinary. Friends who saw the images did not recognize them immediately as synthetic. One asked whether I was ill after seeing the hospital scene.</p>
+<p>That experience made me less interested in who wins the image-generation leaderboard and more interested in what happens when a convincing picture travels without its context.</p>
+<h2 class="article-h2">Why these images are persuasive</h2>
+<p>Older image models often gave themselves away through broken text or inconsistent objects. Better text rendering removes one of those cues. A convincing interface screenshot also needs the right layout, timestamps, icons, and visual hierarchy. The model succeeds when it reproduces the conventions a viewer expects to see.</p>
+<p>This creates a difficult asymmetry. Generating a plausible image is becoming easier; proving the origin of an image still takes work. A forwarded screenshot can lose the label that said it was a mock-up. Someone can then share it as a record of an event that never happened.</p>
+<h2 class="article-h2">The cost of doubt</h2>
+<p>Fraud and misinformation are obvious risks. A forged invoice, emergency photograph, or social post can trigger action before anyone checks it. Platforms will need better provenance and review processes, and people making high-stakes decisions will need stronger verification than visual inspection.</p>
+<p>There is a second problem: real evidence can be dismissed as synthetic. Researchers of deepfakes call this the “liar's dividend.” Once convincing forgeries are common, a person challenged by a genuine image can claim it was generated. The result is a wider gap between seeing something and being able to establish that it happened.</p>
+<p>I do not think a single AI detector will close that gap. Detection patterns change as generators improve, and a false positive can damage an innocent person. Courts, newsrooms, and platforms will need provenance, corroboration, and procedures that fit the stakes of each case. An image alone should carry less evidentiary weight when its origin cannot be established.</p>
+<h2 class="article-h2">How trust might be rebuilt</h2>
+<p>Content provenance is one route. The <a href="https://c2pa.org/" target="_blank" rel="noopener noreferrer">C2PA standard</a> is an effort to attach verifiable information about a file's origin and edits. It depends on adoption across cameras, software, and distribution platforms; a broken chain limits what a viewer can conclude.</p>
+<p>Human and institutional reputation will matter too. I am more likely to trust an image when I know who captured it, when, and what other evidence supports the account. A rough, unpolished aesthetic may come to signal authenticity, but aesthetics are easy to imitate. It cannot replace provenance.</p>
+<p>The most common failure may be accidental. Someone creates an illustration, assumes everyone knows it is illustrative, and sends it without a label. Two forwards later, the image is presented as a photograph. A simple habit helps: label synthetic images at creation, keep that label when sharing, and preserve the source of consequential visual claims.</p>
+<p>Image generation remains an exciting design tool. Its strongest outputs also make the origin of an image a question that deserves a real answer.</p>
+        </div>
+      </article>
+
+      <div class="article-back-section">
+        <a href="../index.html#blog" class="article-back-link">← Back to Writing</a>
+      </div>
+    </main>
+
+    <footer class="site-footer" style="max-width: 760px; margin: 0 auto;">
+      <div class="footer-left">
+        <span>© 2026 Roger Yang</span>
+      </div>
+      <div class="footer-right">
+        <span>Designed &amp; built with focus, speed, and taste.</span>
+      </div>
+    </footer>
+
+    <script>
+      const glow = document.querySelector('.cursor-glow');
+      if (glow && window.matchMedia('(hover: hover)').matches) {
+        document.addEventListener('mousemove', e => {
+          glow.style.left = e.clientX + 'px';
+          glow.style.top = e.clientY + 'px';
+        });
+      }
+    </script>
+  </body>
+</html>

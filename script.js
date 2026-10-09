@@ -108,7 +108,7 @@ if (!prefersReducedMotion && cursorGlow) {
 /* --- Scroll-based reveal --- */
 
 const revealTargets = document.querySelectorAll(
-  ".section-header, .work-item, .about-content, .belief-block, .gallery-grid, .film-row, .timeline-entry, .contact-link, .hero-intro, .hero-nav, .note-block, .research-card, .featured-paper, .paper-row, .perspective-grid article"
+  ".section-header, .work-item, .about-content, .belief-block, .gallery-grid, .film-row, .timeline-entry, .contact-card, .hero-intro, .hero-nav, .note-block, .research-card, .featured-paper, .paper-row, .perspective-grid article"
 );
 
 if (!prefersReducedMotion) {
@@ -158,19 +158,82 @@ const updateActiveNav = () => {
 window.addEventListener("scroll", updateActiveNav, { passive: true });
 updateActiveNav();
 
+/* --- Publication figure selection --- */
+
+document.querySelectorAll("[data-paper-gallery]").forEach((gallery) => {
+  const slides = Array.from(gallery.querySelectorAll(".paper-slide"));
+  const controls = Array.from(gallery.querySelectorAll(".paper-thumb"));
+  const count = gallery.querySelector(".paper-gallery-count");
+  const nav = gallery.querySelector(".paper-gallery-nav");
+  const select = (index) => {
+    slides.forEach((slide, i) => { slide.hidden = i !== index; });
+    controls.forEach((button, i) => button.setAttribute("aria-pressed", String(i === index)));
+    if (count) count.textContent = `${String(index + 1).padStart(2, "0")} / ${String(slides.length).padStart(2, "0")}`;
+  };
+  if (slides.length) select(0);
+  if (nav) nav.hidden = false;
+  controls.forEach((button, index) => {
+    button.addEventListener("click", () => select(index));
+    button.addEventListener("keydown", (event) => {
+      if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
+      event.preventDefault();
+      let next = index;
+      if (event.key === "ArrowLeft") next = (index - 1 + controls.length) % controls.length;
+      if (event.key === "ArrowRight") next = (index + 1) % controls.length;
+      if (event.key === "Home") next = 0;
+      if (event.key === "End") next = controls.length - 1;
+      select(next);
+      controls[next].focus();
+    });
+  });
+});
+
+/* --- Contact handle --- */
+
+document.querySelectorAll("[data-copy-handle]").forEach((button) => {
+  button.addEventListener("click", async () => {
+    const handle = button.dataset.copyHandle;
+    const status = document.querySelector(".contact-status");
+    try {
+      await navigator.clipboard.writeText(handle);
+      button.querySelector(".contact-copy-hint").textContent = "Copied ✓";
+      if (status) status.textContent = `Xiaohongshu username copied: ${handle}`;
+    } catch {
+      if (status) status.textContent = `Find me on Xiaohongshu: ${handle}`;
+    }
+  });
+});
+
 /* --- Lightbox --- */
 
 const lightbox = document.querySelector("#lightbox");
 const lightboxImage = document.querySelector(".lightbox-image");
 const lightboxClose = document.querySelector(".lightbox-close");
 const galleryImages = document.querySelectorAll(".gallery-item img, .film-card img");
+const lightboxCaption = document.querySelector(".lightbox-caption");
+const lightboxOriginal = document.querySelector(".lightbox-original");
 
 if (lightbox && lightboxImage) {
+  const openPreview = (src, alt, caption) => {
+    lightboxImage.src = src;
+    lightboxImage.alt = alt || "";
+    if (lightboxCaption) lightboxCaption.textContent = caption || alt || "";
+    if (lightboxOriginal) lightboxOriginal.href = src;
+    lightbox.showModal();
+  };
   galleryImages.forEach((img) => {
     img.addEventListener("click", () => {
-      lightboxImage.src = img.src;
-      lightboxImage.alt = img.alt || "";
-      lightbox.showModal();
+      openPreview(img.src, img.alt, img.alt);
+    });
+  });
+
+  document.querySelectorAll("[data-figure-preview]").forEach((link) => {
+    link.addEventListener("click", (event) => {
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      const img = link.querySelector("img");
+      const caption = link.closest("figure").querySelector("figcaption").innerText;
+      openPreview(link.href, img.alt, caption);
     });
   });
 
